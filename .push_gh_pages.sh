@@ -10,8 +10,10 @@ FULL_REPO="https://$GH_TOKEN$GH_REPO"
 R CMD BATCH 'rendercheck.R'
 
 cp rendercheck.Rout out
+cp ~/out out
 cd out
 ls -l
+
 git init
 git config user.name "stephs-travis"
 git config user.email "travis"
