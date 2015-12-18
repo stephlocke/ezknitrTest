@@ -11,6 +11,7 @@ R CMD BATCH 'rendercheck.R'
 
 cp rendercheck.Rout out
 cd out
+ls -l
 git init
 git config user.name "stephs-travis"
 git config user.email "travis"
