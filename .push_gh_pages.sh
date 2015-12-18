@@ -10,7 +10,7 @@ FULL_REPO="https://$GH_TOKEN$GH_REPO"
 R CMD BATCH 'rendercheck.R'
 
 cp rendercheck.Rout out
-cp ~/out out
+cp ~/ezknitrTest/out out
 cd out
 ls -l
 
