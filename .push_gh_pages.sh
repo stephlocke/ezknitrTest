@@ -3,7 +3,7 @@
 rm -rf out || exit 0;
 mkdir out;
 
-GH_REPO="@github.com/stephlocke/exknitrTest.git"
+GH_REPO="@github.com/stephlocke/ezknitrTest.git"
 
 FULL_REPO="https://$GH_TOKEN$GH_REPO"
 
