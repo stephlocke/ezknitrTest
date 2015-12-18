@@ -7,9 +7,9 @@ GH_REPO="@github.com/stephlocke/Rtraining.git"
 
 FULL_REPO="https://$GH_TOKEN$GH_REPO"
 
-R CMD BATCH '../ezknitrTest/rendercheck.R'
+R CMD BATCH 'rendercheck.R'
 
-cp ghgenerate.Rout out
+cp rendercheck.Rout out
 cd out
 git init
 git config user.name "stephs-travis"
