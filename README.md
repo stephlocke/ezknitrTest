@@ -23,10 +23,12 @@ install.library("ezknitr")
 - `inst/lvl1a` contains `part1.Rmd` which rolls up `lvl2a/subpart.Rmd`
     + The `part1.Rmd` refers to `subpart.Rmd` as `'lvl2a/subpart.Rmd'` 
 - `inst/lvl1b` contains `part2.Rmd` which is a stub
+- `inst/lvl1c` contains `partA.Rmd` which references a file in `inst/lvl1a`
 
 ## Testing
 The `rendercheck.R` file then performs:
 - knit `part1.Rmd` using `wd="inst/lvl1a"`
 - knit `part0.Rmd` using `wd="inst"`
+- knit `partA.Rmd` using `wd="inst/lvl1c"`
 
-These successfully render despite the reference to `subpart.Rmd` being `lvl2a/subpart.Rmd` in `part1.Rmd`.
+The first two tests assess the ability to integrete documents from different levels within the same hierarchy. The final test assesses the ability to integrate documents from a different area of the hierarchy.
