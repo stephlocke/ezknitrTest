@@ -1,0 +1,60 @@
+
+R version 3.2.3 (2015-12-10) -- "Wooden Christmas-Tree"
+Copyright (C) 2015 The R Foundation for Statistical Computing
+Platform: x86_64-pc-linux-gnu (64-bit)
+
+R is free software and comes with ABSOLUTELY NO WARRANTY.
+You are welcome to redistribute it under certain conditions.
+Type 'license()' or 'licence()' for distribution details.
+
+  Natural language support but running in an English locale
+
+R is a collaborative project with many contributors.
+Type 'contributors()' for more information and
+'citation()' on how to cite R or R packages in publications.
+
+Type 'demo()' for some demos, 'help()' for on-line help, or
+'help.start()' for an HTML browser interface to help.
+Type 'q()' to quit R.
+
+> library(ezknitr)
+> orig <- getwd()
+> setwd("../ezknitrTest")
+> 
+> ## Rolling hierarchy ------
+> 
+> # wd() to part level e.g. inst/lvl1a/
+> ezknitr::ezknit("part1.Rmd","inst/lvl1a"
++                 ,out_dir = "~/ezknitrTest/out"
++                 ,keep_md = FALSE)
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1a/lvl2a/subpart.Rmd
+ezknit output in
+/home/travis/ezknitrTest/out
+> 
+> # setwd() to top level e.g. inst/
+> ezknitr::ezknit("part0.Rmd","inst"
++                 ,out_dir = "~/ezknitrTest/out"
++                 ,keep_md = FALSE)
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1a/part1.Rmd
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1a/lvl2a/subpart.Rmd
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1b/part2.Rmd
+ezknit output in
+/home/travis/ezknitrTest/out
+> 
+> 
+> ## Disparate hierarchy ------
+> # wd() to part level e.g. inst/lvl1c/
+> # child file ref must have ..
+> ezknitr::ezknit("partA.Rmd","inst/lvl1c"
++                 ,out_dir = "~/ezknitrTest/out"
++                 ,keep_md = FALSE)
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1c/../lvl1a/part1.Rmd
+processing file: /home/travis/build/stephlocke/ezknitrTest/inst/lvl1c/../lvl1a/lvl2a/subpart.Rmd
+ezknit output in
+/home/travis/ezknitrTest/out
+> 
+> setwd(orig)
+> 
+> proc.time()
+   user  system elapsed 
+  0.399   0.022   0.425 
