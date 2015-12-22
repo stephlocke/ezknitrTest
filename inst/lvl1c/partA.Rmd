@@ -1,2 +1,7 @@
+----
+title: Test
+output: ioslides_presentation
+---
+
 ```{r child='../lvl1a/part1.Rmd'}
 ```
